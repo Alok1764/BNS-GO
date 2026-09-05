@@ -6,12 +6,18 @@ import (
 	"time"
 
 	"github.com/Alok1764/GO/internal/config"
+	"github.com/Alok1764/GO/internal/db"
 	"github.com/Alok1764/GO/internal/handlers"
 )
 
 func main() {
 
 	cfg := config.MustLoad()
+	_, err := db.Connect(cfg.DB_URL)
+	if err != nil {
+		log.Fatalf("main.db.connect: %v", err)
+	}
+
 	mux := http.NewServeMux()
 
 	mux.HandleFunc("GET /healthz", handlers.Health)
