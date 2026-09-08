@@ -29,5 +29,5 @@ func Connect(dbUrl string) (*sql.DB, error) {
 		return nil, fmt.Errorf("db.ping: %w", err)
 	}
 
-	return nil, nil
+	return db, nil
 }

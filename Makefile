@@ -14,3 +14,5 @@ migrate-up: migrate-build
 
 migrate-down: migrate-build
 	@.\bin\migrate down
+
+	
